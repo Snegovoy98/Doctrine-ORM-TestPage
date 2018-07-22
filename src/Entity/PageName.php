@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PageName
 {
+    /**This class contains information about homePage
+     *
+     */
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
