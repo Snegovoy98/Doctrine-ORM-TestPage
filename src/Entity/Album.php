@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PageNameRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\AlbumRepository")
  */
-class PageName
+class Album
 {
     /**This class contains information about homePage
      *
