@@ -25,7 +25,7 @@ class AlbumRepository extends ServiceEntityRepository
 
     public function Album($value)
     {
-        return $this->createQueryBuilder('p')
+        return $this->createQueryBuilder('a')
             ->andWhere('p.exampleField = :val')
             ->setParameter('val', $value)
             ->orderBy('p.id', 'ASC')
