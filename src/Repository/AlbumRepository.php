@@ -2,28 +2,28 @@
 
 namespace App\Repository;
 
-use App\Entity\PageName;
+use App\Entity\Album;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method PageName|null find($id, $lockMode = null, $lockVersion = null)
- * @method PageName|null findOneBy(array $criteria, array $orderBy = null)
- * @method PageName[]    findAll()
- * @method PageName[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Album|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Album|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Album[]    findAll()
+ * @method Album[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PageNameRepository extends ServiceEntityRepository
+class AlbumRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, PageName::class);
+        parent::__construct($registry, Album::class);
     }
 
-//    /**
-//     * @return PageName[] Returns an array of PageName objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Album[] Returns an array of Album objects
+     */
+
+    public function Album($value)
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')
@@ -34,10 +34,10 @@ class PageNameRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+
 
     /*
-    public function findOneBySomeField($value): ?PageName
+    public function findOneBySomeField($value): ?Album
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')
