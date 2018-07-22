@@ -21,6 +21,27 @@ final class Version20180722175156 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('CREATE TABLE page_name (id INT AUTO_INCREMENT NOT NULL, index VARCHAR(255) NOT NULL, title VARCHAR(255) NOT NULL, about_content LONGTEXT NOT NULL, additional_info VARCHAR(255) NOT NULL, show_additional_info TINYINT(1) NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql(/** @lang text */
+            "INSERT INTO page_name (index,
+                                         title, 
+                                 about_content, 
+                               additional_info, 
+                          show_additional_info, 
+                                     updated_at) 
+                          VALUES(
+                                  'home',
+                                  'Album',
+                                'Something short and leading about the collection below—its contents, 
+                                 the creator, etc. 
+                                 Make it short and sweet, 
+                                 but not too short so folks don't simply skip over it entirely.', 
+                                'This is a wider card with supporting text below as a 
+                                natural lead-in to additional content. 
+                                This content is a little bit longer.',
+                                true,
+                                '22.07.2018'
+                                          )
+                                         ");
     }
 
     /**
