@@ -20,9 +20,9 @@ final class Version20180722175156 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE page_name (id INT AUTO_INCREMENT NOT NULL, index VARCHAR(255) NOT NULL, title VARCHAR(255) NOT NULL, about_content LONGTEXT NOT NULL, additional_info VARCHAR(255) NOT NULL, show_additional_info TINYINT(1) NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE album (id INT AUTO_INCREMENT NOT NULL, index VARCHAR(255) NOT NULL, title VARCHAR(255) NOT NULL, about_content LONGTEXT NOT NULL, additional_info VARCHAR(255) NOT NULL, show_additional_info TINYINT(1) NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql(/** @lang text */
-            "INSERT INTO page_name (index,
+            "INSERT INTO album (index,
                                          title, 
                                  about_content, 
                                additional_info, 
