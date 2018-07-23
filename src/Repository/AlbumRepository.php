@@ -21,18 +21,20 @@ class AlbumRepository extends ServiceEntityRepository
 
 
     /**
-     * @return string
+     * @return array
+     * @throws \Doctrine\DBAL\DBALException
      */
-    public function getAllText(): string
+    public function getAllText(): array
     {
-        return $this->createQueryBuilder('a')
-            ->select(
-                'a.title,
-                        a.about_content,
-                        a.additional_info,
-                        a.show_additional_info,
-                        a.updated_at')
-            ->from(Album::class, 'a');
+        $conn = $this->getEntityManager()->getConnection();
 
+        $sql = /** @lang text */
+            '
+        SELECT * FROM album
+        ';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 }
