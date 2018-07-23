@@ -26,8 +26,8 @@ class AlbumRepository extends ServiceEntityRepository
      */
     public function getAllText(): string
     {
-        return $this->createQueryBuilder('q')
-            ->select('q *')
+        return $this->createQueryBuilder('a')
+            ->select('a *')
             ->getQuery()
             ->getSingleScalarResult()
             ;
