@@ -21,17 +21,19 @@ final class Version20180722175156 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql(
-            /** @lang text */
-            'CREATE TABLE album (id INT AUTO_INCREMENT NOT NULL COMMENT Primary Key: Unique cache ID., index VARCHAR(255) NOT NULL, title VARCHAR(255) NOT NULL, about_content LONGTEXT NOT NULL, additional_info VARCHAR(255) NOT NULL, show_additional_info TINYINT(1) NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+
+            'CREATE TABLE album (id INT AUTO_INCREMENT NOT NULL COMMENT Primary Key: Unique cache  ID., index VARCHAR(255) NOT NULL, title VARCHAR(255) NOT NULL, about_content LONGTEXT NOT NULL, additional_info VARCHAR(255) NOT NULL, show_additional_info TINYINT(1) NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql(
-            /** @lang text */
-            "INSERT INTO album (index,
+
+            "INSERT INTO album (id,
+                                    index,
                                     title, 
                             about_content, 
                           additional_info, 
                       show_additional_info, 
                                 updated_at) 
-                          VALUES( 'home',
+                          VALUES( 1,
+                                  'album',
                                   'Album',
                                 'Something short and leading about the collection below—its contents, 
                                  the creator, etc. 
@@ -41,7 +43,7 @@ final class Version20180722175156 extends AbstractMigration
                                 natural lead-in to additional content. 
                                 This content is a little bit longer.',
                                 true,
-                                '22.07.2018')
+                                22.07.2018)
                                          ");
     }
 
@@ -55,7 +57,7 @@ final class Version20180722175156 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql(/** @lang text */
+        $this->addSql(
             'DROP TABLE page_name');
     }
 }
