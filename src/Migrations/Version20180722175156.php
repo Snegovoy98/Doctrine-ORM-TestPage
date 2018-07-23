@@ -21,8 +21,10 @@ final class Version20180722175156 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql(
+            /** @lang text */
             'CREATE TABLE album (id INT AUTO_INCREMENT NOT NULL COMMENT Primary Key: Unique cache ID., index VARCHAR(255) NOT NULL, title VARCHAR(255) NOT NULL, about_content LONGTEXT NOT NULL, additional_info VARCHAR(255) NOT NULL, show_additional_info TINYINT(1) NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql(
+            /** @lang text */
             "INSERT INTO album (index,
                                     title, 
                             about_content, 
@@ -39,8 +41,7 @@ final class Version20180722175156 extends AbstractMigration
                                 natural lead-in to additional content. 
                                 This content is a little bit longer.',
                                 true,
-                                '22.07.2018'
-                                          )
+                                '22.07.2018')
                                          ");
     }
 
